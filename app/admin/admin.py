@@ -119,5 +119,11 @@ def resetmasses():
             mass.participants = ' '
             mass.number_remaining = 80
             db.session.commit()
+        
+        users = User.query.all()
+        for user in users:
+            user.mass_booked = None
+            db.session.commit()
+
         return redirect(url_for('.index'))
     return '404'
