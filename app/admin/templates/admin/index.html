@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>St. Bakhita Mass Booking Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+ 	<link rel="stylesheet" href="{{ url_for('.static', filename='css/forms.css') }}">
+</head>
+<body>
+	<div class="jumbotron">
+    	<h1>St. Bakhita Catholic Church<br>
+    		<small>Admin panel</small>
+    	</h1>
+    </div>
+    <div class="container">	
+	    <a class='btn btn-info' href='{{ url_for(".dumpmass", mass_id ="first_mass") }}'>download first mass</a>
+
+	    {# a comment #}
+    </div>
+    <div class="container">	
+	    <a class='btn btn-info' href='{{ url_for(".dumpmass", mass_id ="second_mass") }}'>download second mass</a>
+
+	    {# a comment #}
+    </div>
+    <div class="container">	
+	    <a class='btn btn-info' href='{{ url_for(".dumpmass", mass_id ="third_mass") }}'>download third mass</a>
+
+	    {# a comment #}
+    </div>
+    <div class="container">	
+	    <a class='btn btn-info' href='{{ url_for(".dumpmass", mass_id ="fourth_mass") }}'>download fourth mass</a>
+
+	    {# a comment #}
+	</div>
+	<div class="container">	
+	    <form method="POST" action="{{ url_for('.upload') }}" enctype="multipart/form-data">
+	        {{ form.csrf_token }}
+            {{ form.file.label }} {{ form.file }}
+            <br>
+	        <input class="btn btn-info" type="submit" value="Upload">
+	    </form>
+
+	    {# a comment #}
+    </div>
+    <br>
+    <div class="container">	
+	    <a class='btn btn-primary' href='{{ url_for(".dumpdb") }}'>download entire database</a>
+
+	    {# a comment #}
+    </div>
+    <div class="container">	
+	    <a class='btn btn-primary' href='{{ url_for(".resetmasses") }}'>reset all masses</a>
+
+	    {# a comment #}
+    </div>
+    
+</body>
+</html>

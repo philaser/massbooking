@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>St. Bakhita Mass Booking</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/forms.css') }}">
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Mass Bookings<br>
+            <small>St. Bakhita Catholic Church</small>
+        </h1>
+    </div>
+    <div class="container">    
+        <form method="POST" >
+            {{ form.csrf_token }}
+            {% for mass in form.masses %}
+            <tr>
+                <td>{{ mass }}</td>
+                <td>{{ mass.label }}</td>
+            </tr>
+            <br>
+            {% endfor %}
+            <input class="btn btn-info" type="submit" value="Book Mass">
+        </form>
+
+        {# a comment #}
+    </div>
+</body>
+</html>

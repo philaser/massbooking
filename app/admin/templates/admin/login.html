@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>St. Bakhita Mass Booking</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+ 	<link rel="stylesheet" href="{{ url_for('.static', filename='css/forms.css') }}">
+</head>
+<body>
+    <div class="jumbotron">
+    <div class="container">
+        <form method="POST" >
+            {{ form.csrf_token }}
+            <div class="form-field">{{ form.username.label }} {{ form.username }}
+                {% if form.username.errors %}
+                    <ul class="errors">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.password.label }} {{ form.password }}
+                {% if form.password.errors %}
+                    <ul class="errors">
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <input class="btn btn-info" type="submit" value="Login">
+        </form>
+
+        {# a comment #}
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+*.pyc
+settings.json
+.DS_Store
+temp_files
+tmp

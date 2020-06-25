@@ -1,0 +1,12 @@
+.jumbotron{
+	border-radius: 0px;
+	background: linear-gradient(
+		rgba(53, 53, 53, 0.5), rgba(111, 0, 0, 0.4)), 
+		url('/assets/img/church.jpg');
+	background-size: cover;
+}
+.jumbotron h1{
+	line-height: 0.9;
+	color: #FFF;
+	text-shadow: 0rem 0.0rem 0.2rem rgba(0, 0, 0, 0.2);
+}

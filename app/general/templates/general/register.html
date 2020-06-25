@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>St. Bakhita Mass Booking</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+ 	<link rel="stylesheet" href="{{ url_for('.static', filename='css/forms.css') }}">
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Mass Bookings<br>
+            <small>St. Bakhita Catholic Church</small>
+        </h1>
+    </div>
+    <div class="container">
+        <form method="POST" >
+            {{ form.csrf_token }}
+            <div class="form-field">{{ form.number.label }} {{ form.number }}
+                {% if form.number.errors %}
+                    <ul class="errors">
+                        {% for error in form.number.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.l_name.label }} {{ form.l_name }}
+                {% if form.l_name.errors %}
+                    <ul class="errors">
+                        {% for error in form.l_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.f_name.label }} {{ form.f_name }}
+                {% if form.f_name.errors %}
+                    <ul class="errors">
+                        {% for error in form.f_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.o_name.label }} {{ form.o_name }}
+                {% if form.o_name.errors %}
+                    <ul class="errors">
+                        {% for error in form.o_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.dob.label }} {{ form.dob }}
+                {% if form.dob.errors %}
+                    <ul class="errors">
+                        {% for error in form.dob.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.age.label }} {{ form.age }}
+                {% if form.age.errors %}
+                    <ul class="errors">
+                        {% for error in form.age.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">
+                {% for gender in form.gender %}
+                    <tr>
+                        <td>{{ gender }}</td>
+                        <td>{{ gender.label }}</td>
+                    </tr>
+                    <br>
+                {% endfor %}
+                {% if form.gender.errors %}
+                    <ul class="errors">
+                        {% for error in form.gender.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.address.label }} {{ form.address }}
+                {% if form.address.errors %}
+                    <ul class="errors">
+                        {% for error in form.address.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">{{ form.emergency.label }} {{ form.emergency }}
+                {% if form.emergency.errors %}
+                    <ul class="errors">
+                        {% for error in form.emergency.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="form-field">
+                {% for day in form.day_group %}
+                    <tr>
+                        <td>{{ day }}</td>
+                        <td>{{ day.label }}</td>
+                    </tr>
+                    <br>
+                {% endfor %}
+                {% if form.day_group.errors %}
+                    <ul class="errors">
+                        {% for error in form.day_group.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <input class="btn btn-info" type="submit" value="Book Mass">
+        </form>
+
+        {# a comment #}
+    </div>
+</body>
+</html>
