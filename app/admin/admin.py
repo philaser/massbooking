@@ -2,7 +2,7 @@ import os, csv
 from datetime import datetime
 from flask import (Blueprint, redirect, render_template, request, session,
                    url_for, current_app, send_file)
-from sklearn.externals.joblib.externals.cloudpickle.cloudpickle import instance
+# from sklearn.externals.joblib.externals.cloudpickle.cloudpickle import instance
 from werkzeug.utils import secure_filename
 
 from app import db

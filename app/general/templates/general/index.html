@@ -13,9 +13,10 @@
 	</div>
 	<div class="container">	
 	    <form method="POST" action="{{ url_for('.checkin') }}">
+	    	<h2>Enter Your Phone Number</h2>
 	        {{ form.csrf_token }}
-	        {{ form.number.label }} {{ form.number(size=10) }}
-	        <input class="btn btn-info" type="submit" value="Check in">
+	        {{ form.number(size=10, class="form-control", placeholder=form.number.label.text) }}
+	        <input class="btn btn-info" type="submit" value="Continue">
 	    </form>
 
 	    {# a comment #}

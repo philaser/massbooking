@@ -10,3 +10,16 @@
 	color: #FFF;
 	text-shadow: 0rem 0.0rem 0.2rem rgba(0, 0, 0, 0.2);
 }
+
+.form-control{
+	max-width: 80%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+@media (min-width: 768px){
+	/*desktops and larger*/
+	.form-control{
+		max-width: 40%;
+	}
+}

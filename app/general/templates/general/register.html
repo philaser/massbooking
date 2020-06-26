@@ -14,7 +14,9 @@
     <div class="container">
         <form method="POST" >
             {{ form.csrf_token }}
-            <div class="form-field">{{ form.number.label }} {{ form.number }}
+            <h2>Booking Form</h2>
+            <div class="form-field">
+                {{ form.number(class="form-control", placeholder=form.number.label.text) }}
                 {% if form.number.errors %}
                     <ul class="errors">
                         {% for error in form.number.errors %}
@@ -23,7 +25,8 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.l_name.label }} {{ form.l_name }}
+            <div class="form-field">
+                {{ form.l_name(class="form-control", placeholder=form.l_name.label.text) }}
                 {% if form.l_name.errors %}
                     <ul class="errors">
                         {% for error in form.l_name.errors %}
@@ -32,7 +35,8 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.f_name.label }} {{ form.f_name }}
+            <div class="form-field">
+                {{ form.f_name(class="form-control", placeholder=form.f_name.label.text) }}
                 {% if form.f_name.errors %}
                     <ul class="errors">
                         {% for error in form.f_name.errors %}
@@ -41,7 +45,8 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.o_name.label }} {{ form.o_name }}
+            <div class="form-field">
+                {{ form.o_name(class="form-control", placeholder=form.o_name.label.text)  }}
                 {% if form.o_name.errors %}
                     <ul class="errors">
                         {% for error in form.o_name.errors %}
@@ -50,7 +55,8 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.dob.label }} {{ form.dob }}
+            <div class="form-field">
+                {{ form.dob(class="form-control", placeholder=form.dob.label.text) }}
                 {% if form.dob.errors %}
                     <ul class="errors">
                         {% for error in form.dob.errors %}
@@ -59,7 +65,8 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.age.label }} {{ form.age }}
+            <div class="form-field">
+                {{ form.age(class="form-control", placeholder=form.age.label.text)  }}
                 {% if form.age.errors %}
                     <ul class="errors">
                         {% for error in form.age.errors %}
@@ -69,6 +76,7 @@
                 {% endif %}
             </div>
             <div class="form-field">
+                <p>Select Your Gender</p>
                 {% for gender in form.gender %}
                     <tr>
                         <td>{{ gender }}</td>
@@ -84,7 +92,8 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.address.label }} {{ form.address }}
+            <div class="form-field">
+                {{ form.address(class="form-control", placeholder=form.address.label.text)  }}
                 {% if form.address.errors %}
                     <ul class="errors">
                         {% for error in form.address.errors %}
@@ -93,7 +102,8 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="form-field">{{ form.emergency.label }} {{ form.emergency }}
+            <div class="form-field">
+                {{ form.emergency(class="form-control", placeholder=form.emergency.label.text)  }}
                 {% if form.emergency.errors %}
                     <ul class="errors">
                         {% for error in form.emergency.errors %}
@@ -103,6 +113,7 @@
                 {% endif %}
             </div>
             <div class="form-field">
+                <p>Pick Your Day Group</p>
                 {% for day in form.day_group %}
                     <tr>
                         <td>{{ day }}</td>
@@ -118,7 +129,7 @@
                     </ul>
                 {% endif %}
             </div>
-            <input class="btn btn-info" type="submit" value="Book Mass">
+            <input class="btn btn-info" type="submit" value="Continue">
         </form>
 
         {# a comment #}
