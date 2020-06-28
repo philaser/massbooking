@@ -1,7 +1,11 @@
 *.pyc
 settings.json
 .DS_Store
-temp_files
+
 tmp
 *.db
 .env
+instance/temp_files/Copy_of_Bakhita_Booking_June_21_Responses_-_Form_responses_1.csv
+instance/temp_files/database.csv
+instance/temp_files/first_mass.csv
+instance/temp_files/fourth_mass.csv
