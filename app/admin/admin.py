@@ -10,8 +10,8 @@ from app.models import AdminLoginForm, UploadForm, User, Mass
 admin_bp = Blueprint("admin_bp", __name__, template_folder='templates', 
     static_folder='/assets', static_url_path='../general/static')
 
-admin = 'stbccadmin'
-password = 'thefortunate1'
+admin = os.environ['ADMIN_USERNAME']
+password = os.environ['ADMIN_PASSWORD']
 
 
 @admin_bp.route('/', methods=['POST', 'GET'])

@@ -4,3 +4,4 @@ settings.json
 temp_files
 tmp
 *.db
+.env

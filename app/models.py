@@ -57,7 +57,7 @@ class User(db.Model):
 
 
 class Mass(db.Model):
-    name = db.Column(db.String(10), primary_key=True)
+    name = db.Column(db.String, primary_key=True)
     participants = db.Column(db.Text)
     number_remaining = db.Column(db.Integer)
 
