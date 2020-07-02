@@ -69,9 +69,6 @@ def book():
     masses = Mass.query.all()
     for mass in masses:
         mass_data[mass_name[mass.name]]  = mass.number_remaining
-    
-    print(mass_data['Saturday 07:00pm'])
-
     if request.method == 'GET':
         if user.mass_booked != None:
             return render_template('general/bookingconfirmation.html', mass = mass_name[user.mass_booked])
