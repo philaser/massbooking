@@ -20,7 +20,7 @@ class CheckInForm(FlaskForm):
 
 class BookingForm(FlaskForm):
     masses = RadioField('Please select the mass you want to attend', 
-        choices=[('first_mass','Saturday 07:00pm'),('second_mass','Sunday 07:00am'),
+        choices=[('first_mass','Saturday 06:00pm'),('second_mass','Sunday 07:00am'),
         ('third_mass','Sunday 09:00am'),('fourth_mass','Sunday 11:00am')], validators=[DataRequired()])
 
 class RegisterForm(FlaskForm):
@@ -43,7 +43,7 @@ class User(db.Model):
     number = db.Column(db.String(10), primary_key=True)
     l_name = db.Column(db.String(80), nullable=False)
     f_name = db.Column(db.String(80), nullable=False)
-    o_name = db.Column(db.String(80), nullable=False)
+    o_name = db.Column(db.String(80))
     dob = db.Column(db.Date,nullable=False)
     age = db.Column(db.Integer, nullable=False)
     gender = db.Column(db.String, nullable=False)

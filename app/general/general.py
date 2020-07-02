@@ -23,6 +23,7 @@ def checkin():
     if request.method == 'POST':
         form = CheckInForm()
         print(form.number.data)
+        print(form.errors)
         if form.validate_on_submit():
             print('form_validated')
             user = User.query.filter_by(number=form.number.data).first()
@@ -61,7 +62,7 @@ def book():
     form = BookingForm()
     number = session['number']
     user = User.query.filter_by(number=number).first()
-    mass_name = {'first_mass':'Saturday 07:00pm', 'second_mass':'Sunday 07:00am', 
+    mass_name = {'first_mass':'Saturday 06:00pm', 'second_mass':'Sunday 07:00am', 
                 'third_mass':'Sunday 09:00am', 'fourth_mass':'Sunday 11:00am'}
     # getting the remaining number of slots per mass
     mass_data = {}
