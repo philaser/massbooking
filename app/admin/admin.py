@@ -43,8 +43,8 @@ def upload():
                 log_file = open(os.path.join(current_app.instance_path, 'temp_files', 'logfile.txt'),'w+')
                 for row in csv_reader:
                     print("{}, {}".format(row['Contact Number'], row['First Name']))
-                    user = User.query.filter_by(number=row['Contact Number'])
-                    if user:
+                    user = User.query.filter_by(number=row['Contact Number']).first()
+                    if  user == None:
                         dob = datetime.strptime(row['Date of Birth'],'%d/%m/%Y')
                         new_user = User(number=row['Contact Number'], l_name=row['Last Name'],
                                         f_name=row['First Name'], o_name=row['Other Names'], dob=dob,
@@ -52,10 +52,10 @@ def upload():
                                         emergency=row['Emergency Contact'], day_group=row['Day Group'])
                         db.session.add(new_user)
                         db.session.commit()
-                        log_file.writelines('{} {}, {}: Succesfully added to db'.format(row['First Name'],
+                        log_file.writelines('{} {}, {}: Succesfully added to db \n'.format(row['First Name'],
                             row['Last Name'], row['Contact Number']))
                     else:
-                        log_file.writelines('{} {}, {}: already exists in db'.format(row['First Name'],
+                        log_file.writelines('{} {}, {}: already exists in db \n'.format(row['First Name'],
                             row['Last Name'], row['Contact Number']))
                 log_file.close()
             return send_file(os.path.join(current_app.instance_path, 'temp_files', 'logfile.txt'), as_attachment=True)
