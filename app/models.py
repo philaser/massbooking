@@ -3,7 +3,7 @@ from flask_wtf.file import FileField, FileRequired
 from sqlalchemy.sql.expression import column
 from wtforms import RadioField, StringField, PasswordField
 from wtforms.fields.html5 import DateField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, InputRequired
 import requests
 from app import db
 
