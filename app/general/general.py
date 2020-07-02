@@ -22,7 +22,9 @@ def index():
 def checkin():
     if request.method == 'POST':
         form = CheckInForm()
+        print(form.number.data)
         if form.validate_on_submit():
+            print('form_validated')
             user = User.query.filter_by(number=form.number.data).first()
             if user != None:
                 session['number'] = user.number
