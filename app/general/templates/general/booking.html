@@ -14,10 +14,6 @@
     <div class="container">    
         <form method="POST" >
             {{ form.csrf_token }}
-            {% for k,v in mass_data.items() %}
-            {{ k }} {{ v }}
-            {% endfor %}
-
             {% for mass in form.masses %}
             <tr>
                 <td>{{ mass }}</td>
