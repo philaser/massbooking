@@ -27,7 +27,7 @@ def index():
             if admin_form.username.data == admin and admin_form.password.data == password:
                 session['isadmin'] = True
                 return redirect(url_for('.index'))
-    return '404'    
+    return '404 Something bad happened. Please contact the Administrator'    
 
 @admin_bp.route('/upload', methods=['POST'])
 def upload():
@@ -60,7 +60,7 @@ def upload():
                 log_file.close()
             return send_file(os.path.join(current_app.instance_path, 'temp_files', 'logfile.txt'), as_attachment=True)
             return redirect(url_for('.index'))
-    return '404'
+    return '404 Something bad happened. Please contact the Administrator'
 
 
 @admin_bp.route('/dumpdb', methods=['GET'])
@@ -82,7 +82,7 @@ def dumpdb():
         
         return send_file(os.path.join(current_app.instance_path, 'temp_files', 'database.csv'), as_attachment=True)
         return redirect(url_for('.index')) 
-    return '404'
+    return '404 Something bad happened. Please contact the Administrator'
 
 @admin_bp.route('/dumpmass/<mass_id>', methods=['GET'])
 def dumpmass(mass_id):
@@ -106,7 +106,7 @@ def dumpmass(mass_id):
 
             return send_file(os.path.join(current_app.instance_path, 'temp_files', '{}.csv'.format(mass_id)), as_attachment=True)
             return redirect(url_for('.index')) 
-    return '404'        
+    return '404 Something bad happened. Please contact the Administrator'        
 
 
 @admin_bp.route('/resetmasses', methods=['GET'])
@@ -125,4 +125,4 @@ def resetmasses():
             db.session.commit()
 
         return redirect(url_for('.index'))
-    return '404'
+    return '404 Something bad happened. Please contact the Administrator'

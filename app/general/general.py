@@ -15,7 +15,7 @@ def index():
     form = CheckInForm()
     if request.method == 'GET':
         return render_template('general/index.html', form=form)
-    return 404
+    return '404 Something bad happened. Please contact the Administrator'
 
     
 @general_bp.route("/checkin", methods=['POST'])
@@ -28,7 +28,7 @@ def checkin():
                 session['number'] = user.number
                 return redirect(url_for('.book'))
             return redirect(url_for('.register'))
-    return 404
+    return '404 Something bad happened. Please contact the Administrator'
 
 
 @general_bp.route("/register", methods=['POST', 'GET'])
@@ -50,7 +50,7 @@ def register():
             db.session.commit()
             session['number'] = form.number.data
             return redirect(url_for('.book'))
-    return "404"
+    return '404 Something bad happened. Please contact the Administrator'
 
 
 
@@ -86,4 +86,4 @@ def book():
             message = sendMessage(user.number, user.f_name, user.l_name, user.mass_booked)
             print(message)
             return render_template('general/bookingconfirmation.html', mass = mass_name[user.mass_booked])
-    return 404
+    return '404 Something bad happened. Please contact the Administrator'
