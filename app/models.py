@@ -16,7 +16,7 @@ class UploadForm(FlaskForm):
     file = FileField('Upload file to database',validators=[FileRequired()])
 
 class CheckInForm(FlaskForm):
-    number = StringField('Number', validators=[InputRequired(message='Please enter a message!')])
+    number = StringField('Number')
 
 class BookingForm(FlaskForm):
     masses = RadioField('Please select the mass you want to attend', 
