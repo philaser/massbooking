@@ -3,7 +3,7 @@ from flask_wtf.file import FileField, FileRequired
 from sqlalchemy.sql.expression import column
 from wtforms import RadioField, StringField, PasswordField
 from wtforms.fields.html5 import DateField
-from wtforms.validators import DataRequired, InputRequired
+from wtforms.validators import DataRequired, InputRequired, Length
 import requests
 from app import db
 
@@ -16,7 +16,7 @@ class UploadForm(FlaskForm):
     file = FileField('Upload file to database',validators=[FileRequired()])
 
 class CheckInForm(FlaskForm):
-    number = StringField('Number')
+    number = StringField('Number', validators=[Length(min=10, max=10, message='Number must be 10 digits')])
 
 class BookingForm(FlaskForm):
     masses = RadioField('Please select the mass you want to attend', 
