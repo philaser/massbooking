@@ -3,7 +3,7 @@ from flask_wtf.file import FileField, FileRequired
 from sqlalchemy.sql.expression import column
 from wtforms import RadioField, StringField, PasswordField
 from wtforms.fields.html5 import DateField
-from wtforms.validators import DataRequired, InputRequired, Length
+from wtforms.validators import DataRequired, InputRequired, Length, NumberRange
 import requests
 from app import db
 
@@ -24,16 +24,16 @@ class BookingForm(FlaskForm):
         ('third_mass','Sunday 09:00am'),('fourth_mass','Sunday 11:00am')], validators=[DataRequired()])
 
 class RegisterForm(FlaskForm):
-    number = StringField('Phone number', validators=[DataRequired()])
+    number = StringField('Phone number', validators=[DataRequired(), Length(min=10, max=10, message='Number must be 10 digits')])
     l_name = StringField('last name', validators=[DataRequired()])
     f_name = StringField('First name', validators=[DataRequired()])
     o_name = StringField('Other names', validators=[DataRequired()])
     # datefield only works with below format else it will not validate
     dob = DateField('Date of birth', format='%Y-%m-%d')
-    age = StringField('Age', validators=[DataRequired()])
+    age = StringField('Age', validators=[DataRequired(), NumberRange(max=120, message='Please enter a valid age')])
     gender = RadioField('Gender', choices=[('male','Male'),('female','Female')], validators=[DataRequired()])
     address = StringField('Residential address', validators=[DataRequired()])
-    emergency = StringField('Emergency contact', validators=[DataRequired()])
+    emergency = StringField('Emergency contact', validators=[DataRequired(), Length(min=10, max=10, message='Number must be 10 digits')])
     day_group = RadioField('Day group', choices=[('Monday','Monday'), ('Tuesday','Tuesday'), ('Wednesday','Wednesday'), 
         ('Thursday','Thursday'), ('Friday','Friday'), 
         ('Saturday','Saturday'), ('Sunday', 'Sunday')], validators=[DataRequired()])
