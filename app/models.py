@@ -27,9 +27,9 @@ class RegisterForm(FlaskForm):
     number = StringField('Phone number', validators=[DataRequired(), Length(min=10, max=10, message='Number must be 10 digits')])
     l_name = StringField('last name', validators=[DataRequired()])
     f_name = StringField('First name', validators=[DataRequired()])
-    o_name = StringField('Other names', validators=[DataRequired()])
+    o_name = StringField('Other names')
     # datefield only works with below format else it will not validate
-    dob = DateField('Date of birth', format='%Y-%m-%d')
+    dob = DateField('Date of birth', format='%Y-%m-%d', validators=[DataRequired()])
     age = StringField('Age', validators=[DataRequired(), NumberRange(max=120, message='Please enter a valid age')])
     gender = RadioField('Gender', choices=[('male','Male'),('female','Female')], validators=[DataRequired()])
     address = StringField('Residential address', validators=[DataRequired()])
