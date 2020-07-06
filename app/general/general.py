@@ -31,8 +31,7 @@ def checkin():
                 session['number'] = user.number
                 return redirect(url_for('.book'))
             return redirect(url_for('.register'))
-        return redirect(url_for('.index'))
-        # return render_template('general/index.html', form=form)
+        return render_template('general/index.html', form=form)
     return '404 Something bad happened. Please contact the Administrator'
 
 
@@ -55,6 +54,7 @@ def register():
             db.session.commit()
             session['number'] = form.number.data
             return redirect(url_for('.book'))
+        return render_template('general/register.html', form=form)
     return '404 Something bad happened. Please contact the Administrator'
 
 
