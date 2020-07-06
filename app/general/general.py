@@ -31,6 +31,7 @@ def checkin():
                 session['number'] = user.number
                 return redirect(url_for('.book'))
             return redirect(url_for('.register'))
+        return render_template('general/index.html', form=form)
     return '404 Something bad happened. Please contact the Administrator'
 
 
