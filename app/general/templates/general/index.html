@@ -14,8 +14,17 @@
 	<div class="container">	
 	    <form method="POST" action="{{ url_for('.checkin') }}">
 	    	<h2>Enter Your Phone Number</h2>
-	        {{ form.csrf_token }}
-	        {{ form.number(size=10, class="form-control", placeholder=form.number.label.text) }}
+			{{ form.csrf_token }}
+			<div class="form-field">
+                {{ form.number(class="form-control", placeholder=form.number.label.text) }}
+                {% if form.number.errors %}
+                    <ul class="errors">
+                        {% for error in form.number.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
 	        <input class="btn btn-info" type="submit" value="Continue">
 	    </form>
 
