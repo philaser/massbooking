@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
 from sqlalchemy.sql.expression import column
-from wtforms import RadioField, StringField, PasswordField
+from wtforms import RadioField, StringField, PasswordField, IntegerField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, InputRequired, Length, NumberRange
 import requests
@@ -30,7 +30,7 @@ class RegisterForm(FlaskForm):
     o_name = StringField('Other names')
     # datefield only works with below format else it will not validate
     dob = DateField('Date of birth', format='%Y-%m-%d', validators=[DataRequired()])
-    age = StringField('Age', validators=[DataRequired(), NumberRange(max=120, message='Please enter a valid age')])
+    age = IntegerField('Age', validators=[DataRequired(), NumberRange(max=120, message='Please enter a valid age')])
     gender = RadioField('Gender', choices=[('male','Male'),('female','Female')], validators=[DataRequired()])
     address = StringField('Residential address', validators=[DataRequired()])
     emergency = StringField('Emergency contact', validators=[DataRequired(), Length(min=10, max=10, message='Number must be 10 digits')])
