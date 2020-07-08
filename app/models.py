@@ -10,10 +10,8 @@ from app import db
 class MyBaseForm(FlaskForm):
     class Meta:
         csrf = False # Enable CSRF
-        csrf_class = SomeCSRF  # Set the CSRF implementation
-        csrf_secret = b'foobar'  # Some implementations need a secret key.
-        # Any other CSRF settings here.
 
+        
 class AdminLoginForm(MyBaseForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
