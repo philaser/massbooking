@@ -11,15 +11,15 @@ class MyBaseForm(FlaskForm):
     class Meta:
         csrf = False # Enable CSRF
 
-        
-class AdminLoginForm(MyBaseForm):
+
+class AdminLoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
 
 class UploadForm(FlaskForm):
     file = FileField('Upload file to database',validators=[FileRequired()])
 
-class CheckInForm(FlaskForm):
+class CheckInForm(MyBaseForm):
     number = StringField('Number', validators=[Length(min=10, max=10, message='Number must be 10 digits')])
 
 class BookingForm(FlaskForm):
