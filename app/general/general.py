@@ -24,7 +24,6 @@ def checkin():
         form = CheckInForm()
         print(form.number.data)
         print(form.errors)
-        print(form.csrf_token.errors)
         if form.validate_on_submit():
             print('form_validated')
             user = User.query.filter_by(number=form.number.data).first()
