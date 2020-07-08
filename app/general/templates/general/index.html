@@ -14,6 +14,7 @@
 	<div class="container">	
 	    <form method="POST" action="{{ url_for('.checkin') }}">
 	    	<h2>Enter Your Phone Number</h2>
+			{{ form.csrf_token }}
 			<div class="form-field">
                 {{ form.number(class="form-control", placeholder=form.number.label.text) }}
                 {% if form.number.errors %}
