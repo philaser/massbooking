@@ -29,7 +29,6 @@ def checkin():
             user = User.query.filter_by(number=form.number.data).first()
             if user != None:
                 session['number'] = user.number
-                print(session['number'])
                 return redirect(url_for('.book'))
             return redirect(url_for('.register'))
         return render_template('general/index.html', form=form)
