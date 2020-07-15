@@ -45,7 +45,7 @@ def upload():
                     print("{}, {}".format(row['Contact Number'], row['First Name']))
                     user = User.query.filter_by(number=row['Contact Number']).first()
                     if  user == None:
-                        dob = datetime.strptime(row['Date of Birth'],'%d/%m/%Y')
+                        dob = datetime.strptime(row['Date of Birth'],'%m/%d/%Y')
                         new_user = User(number=row['Contact Number'], l_name=row['Last Name'],
                                         f_name=row['First Name'], o_name=row['Other Names'], dob=dob,
                                         age=row['Age'], gender=row['Gender'], address=row['Residential Address'],
