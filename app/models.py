@@ -73,7 +73,7 @@ class Mass(db.Model):
 def sendMessage(number, f_name, l_name, mass_id ):
     api_key = os.environ['MNOTIFY_API_KEY']
     name = '{} {}'.format(f_name, l_name)
-    mass_name = {'first_mass':'Saturday 7:00pm', 'second_mass':'Sunday 7:00am', 
+    mass_name = {'first_mass':'Saturday 6:00pm', 'second_mass':'Sunday 7:00am', 
         'third_mass':'Sunday 9:00am', 'fourth_mass':'Sunday 11:00am'}
     mass = mass_name[mass_id]
     num = [number]
