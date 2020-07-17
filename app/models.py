@@ -22,7 +22,7 @@ class CheckInForm(FlaskForm):
 class BookingForm(FlaskForm):
     masses = RadioField('Please select the mass you want to attend', 
         choices=[('first_mass','Saturday 06:00pm'),('second_mass','Sunday 07:00am'),
-        ('third_mass','Sunday 09:00am')], validators=[DataRequired()])
+        ('third_mass','Sunday 09:00am'),('fourth_mass','Sunday 11:00am')], validators=[DataRequired()])
 
 class RegisterForm(FlaskForm):
     number = StringField('Phone number', validators=[DataRequired(), Length(min=10, max=10, message='Number must be 10 digits')])
