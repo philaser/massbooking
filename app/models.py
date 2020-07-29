@@ -21,7 +21,7 @@ class CheckInForm(FlaskForm):
 
 class BookingForm(FlaskForm):
     masses = RadioField('Please select the mass you want to attend', 
-        choices=[(('second_mass','Sunday 07:00am'),
+        choices=[('second_mass','Sunday 07:00am'),
         ('third_mass','Sunday 09:30am')], validators=[DataRequired()])
 
 class RegisterForm(FlaskForm):
