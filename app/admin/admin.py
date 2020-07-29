@@ -116,7 +116,7 @@ def resetmasses():
 
         for mass in masses:
             mass.participants = ' '
-            mass.number_remaining = 80
+            mass.number_remaining = 350
             db.session.commit()
         
         users = User.query.all()

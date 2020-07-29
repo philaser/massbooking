@@ -65,7 +65,7 @@ def book():
     number = session['number']
     user = User.query.filter_by(number=number).first()
     mass_name = {'first_mass':'Saturday 06:00pm', 'second_mass':'Sunday 07:00am', 
-                'third_mass':'Sunday 09:00am', 'fourth_mass':'Sunday 11:00am'}
+                'third_mass':'Sunday 09:30am', 'fourth_mass':'Sunday 11:00am'}
     # getting the remaining number of slots per mass
     mass_data = {}
     masses = Mass.query.all()
