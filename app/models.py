@@ -21,8 +21,7 @@ class CheckInForm(FlaskForm):
 
 class BookingForm(FlaskForm):
     masses = RadioField('Please select the mass you want to attend', 
-        choices=[('second_mass','Sunday 07:00am'),
-        ('third_mass','Sunday 09:30am')], validators=[DataRequired()])
+        choices=[('second_mass','Easter Sunday 08:00am')], validators=[DataRequired()])
 
 class RegisterForm(FlaskForm):
     number = StringField('Phone number', validators=[DataRequired(), Length(min=10, max=10, message='Number must be 10 digits')])
@@ -73,7 +72,7 @@ class Mass(db.Model):
 def sendMessage(number, f_name, l_name, mass_id ):
     api_key = os.environ['MNOTIFY_API_KEY']
     name = '{} {}'.format(f_name, l_name)
-    mass_name = {'first_mass':'Saturday 6:00pm', 'second_mass':'Sunday 7:00am', 
+    mass_name = {'first_mass':'Saturday 6:00pm', 'second_mass':'Easter Sunday 8:00am', 
         'third_mass':'Sunday 9:30am', 'fourth_mass':'Sunday 11:00am'}
     mass = mass_name[mass_id]
     num = [number]

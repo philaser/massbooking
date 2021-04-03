@@ -64,7 +64,7 @@ def book():
     form = BookingForm()
     number = session['number']
     user = User.query.filter_by(number=number).first()
-    mass_name = {'first_mass':'Saturday 06:00pm', 'second_mass':'Sunday 07:00am', 
+    mass_name = {'first_mass':'Saturday 06:00pm', 'second_mass':'Easter Sunday 08:00am', 
                 'third_mass':'Sunday 09:30am', 'fourth_mass':'Sunday 11:00am'}
     # getting the remaining number of slots per mass
     mass_data = {}
@@ -72,15 +72,15 @@ def book():
     for mass in masses:
         mass_data[mass_name[mass.name]]  = mass.number_remaining
     if request.method == 'GET':
-        if user.mass_booked != None:
-            return render_template('general/bookingconfirmation.html', mass = mass_name[user.mass_booked])
+        #if user.mass_booked != None:
+        #    return render_template('general/bookingconfirmation.html', mass = mass_name[user.mass_booked])
         return render_template('general/booking.html', form=form, mass_data = mass_data)
     elif request.method == 'POST':
         if form.validate_on_submit():
             data = form.masses.data
             mass = Mass.query.filter_by(name=data).first()
-            if mass.number_remaining == 0:
-                return render_template('general/massfull.html')
+        #    if mass.number_remaining == 0:
+        #        return render_template('general/massfull.html')
             user.mass_booked = data
             mass.participants = mass.participants + ',{}'.format(user.number)
             mass.number_remaining = mass.number_remaining - 1
