@@ -38,7 +38,6 @@ class RegisterForm(FlaskForm):
         ('Thursday','Thursday'), ('Friday','Friday'), 
         ('Saturday','Saturday'), ('Sunday', 'Sunday')], validators=[DataRequired()])
 
-
 class User(db.Model):
     number = db.Column(db.String(10), primary_key=True)
     l_name = db.Column(db.String(80), nullable=False)
@@ -55,19 +54,13 @@ class User(db.Model):
     def __repr__(self):
         return 'User {}'.format(self.number)
 
-
 class Mass(db.Model):
     name = db.Column(db.String, primary_key=True)
     participants = db.Column(db.Text)
     number_remaining = db.Column(db.Integer)
 
-
     def __repr__(self):
         return 'User {}'.format(self.name)
-
-
-
-
 
 def sendMessage(number, f_name, l_name, mass_id ):
     api_key = os.environ['MNOTIFY_API_KEY']
