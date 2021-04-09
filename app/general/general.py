@@ -64,7 +64,7 @@ def book():
     form = BookingForm()
     number = session['number']
     user = User.query.filter_by(number=number).first()
-    mass_name = {'first_mass':'Saturday 06:00pm', 'second_mass':'Easter Sunday 08:00am', 
+    mass_name = {'first_mass':'Saturday 06:00pm', 'second_mass':'Sunday 07:00am', 
                 'third_mass':'Sunday 09:30am', 'fourth_mass':'Sunday 11:00am'}
     # getting the remaining number of slots per mass
     mass_data = {}
